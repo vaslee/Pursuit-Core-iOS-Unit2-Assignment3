@@ -128,6 +128,9 @@
                                 <state key="normal" title="NewGame">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="newGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8hk-hM-ycL"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_ _ _ _ _ _ " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPD-P3-QAg">
                                 <rect key="frame" x="15" y="325.5" width="384" height="28.5"/>
@@ -139,38 +142,58 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wdn-42-dkP">
+                                <rect key="frame" x="11" y="619.5" width="392" height="231.5"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RP2-CE-5Og">
+                                <rect key="frame" x="15" y="387" width="384" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="RP2-CE-5Og" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="1xI-t1-pN4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wdn-42-dkP" secondAttribute="bottom" constant="11" id="48N-tw-S63"/>
+                            <constraint firstItem="RP2-CE-5Og" firstAttribute="top" secondItem="VPD-P3-QAg" secondAttribute="bottom" constant="33" id="7m5-96-e3x"/>
                             <constraint firstItem="0gs-fd-ORW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="8j8-Th-x9G"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ido-ho-mdx" secondAttribute="trailing" constant="15" id="BmK-kA-4NS"/>
+                            <constraint firstItem="wdn-42-dkP" firstAttribute="top" secondItem="mO1-NU-v2P" secondAttribute="bottom" constant="11" id="Bug-cX-06x"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RP2-CE-5Og" secondAttribute="trailing" constant="15" id="GQm-Ia-tG2"/>
                             <constraint firstItem="mO1-NU-v2P" firstAttribute="top" secondItem="0gs-fd-ORW" secondAttribute="bottom" constant="93" id="GRP-Be-odc"/>
                             <constraint firstItem="Ido-ho-mdx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="HbS-BL-Az1"/>
                             <constraint firstItem="Ido-ho-mdx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="Mmd-my-QUL"/>
                             <constraint firstItem="994-UF-ZmA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="Zp5-Bl-6q7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wdn-42-dkP" secondAttribute="trailing" constant="11" id="al3-8f-ImP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VPD-P3-QAg" secondAttribute="trailing" constant="15" id="bjz-h1-cte"/>
                             <constraint firstItem="VPD-P3-QAg" firstAttribute="top" secondItem="Ido-ho-mdx" secondAttribute="bottom" constant="20" id="cqp-NU-agt"/>
                             <constraint firstItem="994-UF-ZmA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="41" id="cym-Nu-SJ5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="994-UF-ZmA" secondAttribute="trailing" constant="15" id="ekN-Dk-ytu"/>
                             <constraint firstItem="Ido-ho-mdx" firstAttribute="top" secondItem="994-UF-ZmA" secondAttribute="bottom" constant="113" id="f7c-XW-4ly"/>
+                            <constraint firstItem="wdn-42-dkP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="11" id="kxi-rO-1r8"/>
                             <constraint firstItem="mO1-NU-v2P" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="mtb-Xu-1VM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0gs-fd-ORW" secondAttribute="trailing" constant="15" id="ntr-U4-fWR"/>
                             <constraint firstItem="0gs-fd-ORW" firstAttribute="top" secondItem="Ido-ho-mdx" secondAttribute="bottom" constant="140" id="paU-Xf-2es"/>
                             <constraint firstItem="VPD-P3-QAg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="tK4-qt-Y83"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mO1-NU-v2P" secondAttribute="trailing" constant="30" id="tqn-6a-jOP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ido-ho-mdx" secondAttribute="trailing" constant="15" id="unc-cm-vyl"/>
+                            <constraint firstItem="0gs-fd-ORW" firstAttribute="top" secondItem="RP2-CE-5Og" secondAttribute="bottom" constant="33" id="vIw-ES-8EE"/>
                             <constraint firstItem="0gs-fd-ORW" firstAttribute="top" secondItem="VPD-P3-QAg" secondAttribute="bottom" constant="91.5" id="vtD-Nv-0Z2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="cohortTextField" destination="0gs-fd-ORW" id="xyw-I8-T1j"/>
+                        <outlet property="hangmanPicture" destination="wdn-42-dkP" id="Yby-wp-0dU"/>
+                        <outlet property="notes" destination="RP2-CE-5Og" id="3kp-P9-Tnj"/>
+                        <outlet property="underLineLabel" destination="VPD-P3-QAg" id="sp0-OS-xUk"/>
                         <outlet property="userInputTextField" destination="Ido-ho-mdx" id="Phb-Ar-XLs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="797" y="521"/>
+            <point key="canvasLocation" x="540.57971014492762" y="482.8125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kuF-Mb-R3z">

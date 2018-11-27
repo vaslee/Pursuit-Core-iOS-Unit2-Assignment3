@@ -10,18 +10,43 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var gameBrian = Hangman()
+    
+    
+    
     @IBOutlet weak var userInputTextField: UITextField!
+    
+    @IBOutlet weak var underLineLabel: UILabel!
     @IBOutlet weak var cohortTextField: UITextField!
     
     
+
     
-  override func viewDidLoad() {
+    @IBOutlet weak var notes: UILabel!
+    
+    @IBOutlet weak var hangmanPicture: UIImageView!
+    
+    
+    
+    
+    
+    override func viewDidLoad() {
     super.viewDidLoad()
     // step 3: set textfield to self
     userInputTextField.delegate = self
     cohortTextField.delegate = self
   }
 
+    @IBAction func newGame(_ sender: UIButton) {
+        newGameStart()
+    }
+    
+    
+    
+    
+    
+    
+    
 }
 // step: 1: conform to UITextFiledDelegate
 extension ViewController: UITextFieldDelegate {
@@ -45,6 +70,7 @@ extension ViewController: UITextFieldDelegate {
         print(textField.text ?? "")
         return true
     }
+    
 }
 
 
