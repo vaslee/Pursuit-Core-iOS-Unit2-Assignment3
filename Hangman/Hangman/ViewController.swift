@@ -44,6 +44,7 @@ class ViewController: UIViewController {
        gameBrian.newGameStart()
         guard let underLine = userInputTextField.text else { return }
         underLineLabel.text = gameBrian.gameArray(word: underLine)
+        hangmanPicture.image = gameBrian.pictureForHangMan()
     }
     
     
