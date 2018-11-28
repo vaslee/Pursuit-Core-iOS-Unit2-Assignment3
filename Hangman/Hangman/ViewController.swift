@@ -59,18 +59,20 @@ extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // dismiss keyboard
 //        textField.text
+
         switch textField {
         case cohortTextField:
             gameBrian.guessLetter(word2: textField.text!)
-            underLineLabel.text = gameBrian.updateWord(word2: textField.text!)
-            return true
+           underLineLabel.text = gameBrian.updateWord(word2: textField.text!)
+            notes.text = gameBrian.guesseCheck(word2: textField.text!)
+            hangmanPicture.image = gameBrian.pictureForHangMan()
+            
         default:
             return true
         }
         
-        
         textField.resignFirstResponder()
-        
+     
         if textField == cohortTextField {
             // do cohort logic
             print("cohort textField")
