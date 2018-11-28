@@ -87,7 +87,7 @@ class Hangman {
             
                     }
         noteLabel = guesses.compactMap{$0}.joined(separator: " ")
-        return noteLabel
+        return label
     }
     
     
