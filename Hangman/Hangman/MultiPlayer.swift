@@ -7,20 +7,30 @@
 //
 
 import UIKit
-
+//var correctWord = [String]() //输入保密的
+//var wrongGuessesLetter = [String]()
+//var guesses = [String]()// 猜字的
+//var guessesChance:Int = 0
+//var secureInput: String = ""
+//var label: String = ""
+//var noteLabel: String = ""
+//var textField: Bool = false
+//var gameStatus: Bool = false
+//var hangmanPicture: UIImage = UIImage(named: "hangMan1")!
 
 class Hangman {
+    
     var correctWord = [String]() //输入保密的
-    var wrongGuessesLetter = [String]()
+    var guessesLetter = [String]()
     var guesses = [String]()// 猜字的
-    var guessesChance:Int //= 0
-    var secureInput: String //= ""
-    var label: String //= ""
-    var noteLabel: String
-    var textField: Bool //= false
-    var gameStatus: Bool //= false
-    var hangmanPicture: UIImage
-//    func gameArray(word: String) {
+    var guessesChance:Int = 0
+    var secureInput: String = ""
+    var label: String = ""
+    var noteLabel: String = ""//"_"
+    var textField: Bool = false
+    var gameStatus: Bool = false
+    var hangmanPicture: UIImage = UIImage(named: "HangMan1")!
+    //    func gameArray(word: String) {
 //        gameStatus = false
 //        for i in word {
 //            correctWord.append("_")
@@ -28,15 +38,15 @@ class Hangman {
 //        }
 //    }
     
-    init(guessesChance:Int, secureInput: String, label: String, textField: Bool, gameStatus: Bool,noteLabel: String, hangmanPicture: UIImage) {
-        self.guessesChance = 7
-        self.secureInput = ""
-        self.label = ""
-        self.textField = false
-        self.gameStatus = false
-        self.noteLabel = ""
-        self.hangmanPicture = UIImage(named: "hangMan1")!
-       // self.guessesLetter = Array(repeating: "_", count: Int(self.userInput)!)
+//    init(guessesChance:Int, secureInput: String, label: String, textField: Bool, gameStatus: Bool,noteLabel: String, hangmanPicture: UIImage) {
+//        self.guessesChance = guessesChance
+//        self.secureInput = secureInput
+//        self.label = label
+//        self.textField = textField
+//        self.gameStatus = gameStatus
+//        self.noteLabel = noteLabel
+//        self.hangmanPicture = hangmanPicture
+  //      self.guessesLetter = Array(repeating: "_", count: Int(self.userInput)!)
      
         //for i in 0...Int(self.userInput)! - 1 {
         //    let index = self.userInput.index(self.userInput.startIndex, offsetBy: i)
@@ -45,64 +55,90 @@ class Hangman {
          //   }
        // }
    // }
-        func gameArray(word: String) {
+        func gameArray(word: String) -> String {
            // gameStatus = false
             for i in word {
                 guesses.append("_")
                 correctWord.append(String(i))
             }
-            noteLabel == guesses.compactMap{$0}.joined(separator: " ")
-            textField == true
-        
+            noteLabel = guesses.compactMap{$0}.joined(separator: " ")
+            textField = true
+        return noteLabel
         }
-    }//init{}
-    
-    func guessLetter (word2: String) {
-        if guesses.contains(word2){
-            if correctWord.contains(word2){
-                noteLabel = "opp,You have guessed: \(word2)"
-            } else {
-                guessesChance += 1
-                for a in 0..<correctWord.count {
-                    for b in correctWord {
-                        if correctWord[a] == word2 {
-                            guesses[a] = correctWord[a]
-                        }
-                        if guesses == correctWord {
-                            noteLabel = "WOW!!! YOU WIN!!!👏🏼"
-                            gameStatus = true
-                            break
-                        }
-                        noteLabel = guesses.compactMap{$0}.joined(separator: " ")
-                    }
-                }
+    //}//init{}
+//    -> (String?,String)
+    public func updateWord(word2: String) -> String{
+        for a in 0..<correctWord.count {
+            for b in correctWord {
+                if correctWord[a] == word2 {
+//                    userInput.remove(at: userInput.index(userInput.startIndex, offsetBy: num))
+                    guesses[a] = correctWord[a]
+        }
             }
-        } else {
-            if wrongGuessesLetter.contains(word2) {
-                noteLabel = "opp,You have guessed: \(word2)"
-            } else {
-                guessesChance += 1
-                wrongGuessesLetter.append(word2)
-                noteLabel = "Wrong! \(wrongGuessesLetter.compactMap{$0}.joined(separator: " "))"
-            
-            }
-        }
-        if guessesChance > 1 && guessesChance < 7 {
-            hangmanPicture = UIImage(named: "hangMan1")!
-        } else if guessesChance == 7 {
-            hangmanPicture = UIImage(named: "hangMan7")!
-            noteLabel = "Game Over! ☠️"
-            gameStatus = true
-        }
+    }
+        noteLabel = guesses.compactMap{$0}.joined(separator: " ")
+        return noteLabel
     }
     
+    func guesseCorrect(word2: String) -> String {
+        if guesses == correctWord {
+                        label = "WOW!!! YOU WIN!!!👏🏼"
+                        gameStatus = true
+            
+                    }
+        noteLabel = guesses.compactMap{$0}.joined(separator: " ")
+        return noteLabel
+    }
+    
+    
+    
+//        if guesses == correctWord {
+//            label = "WOW!!! YOU WIN!!!👏🏼"
+//            gameStatus = true
+//            break
+//        }
+//        noteLabel = guesses.compactMap{$0}.joined(separator: " ")
+//    }
+//    if guesses.contains(word2){
+//    noteLabel = "opp,You have guessed: \(word2)"
+//    } else {
+//    guessesChance += 1
+//    //                updateWord(word2)
+//    }
+//} else {
+//    if wrongGuessesLetter.contains(word2) {
+//        noteLabel = "opp,You have guessed: \(word2)"
+//    } else {
+//        guessesChance += 1
+//        wrongGuessesLetter.append(word2)
+//        noteLabel = "Wrong! \(wrongGuessesLetter.compactMap{$0}.joined(separator: " "))"
+//
+//    }
+//}
+//if guessesChance > 1 && guessesChance < 7 {
+//    hangmanPicture = UIImage(named: "HangMan1")!
+//} else if guessesChance == 7 {
+//    hangmanPicture = UIImage(named: "HangMan7")!
+//    noteLabel = "Game Over! ☠️"
+//    gameStatus = true
+//}
+    
+    func guessLetter (word2: String) {
+        if correctWord.contains(word2) == false {
+            guessesChance += 1
+    }
+        guessesLetter.append(word2)
+    }
+    
+    
+    
     func newGameStart() {
-        correctWord.isEmpty == true
-        wrongGuessesLetter.isEmpty == true
-        guesses.isEmpty == true
+        correctWord.removeAll()
+        guessesLetter.removeAll()
+        guesses.removeAll()
         noteLabel = "put new words"
         guessesChance = 0
-       // hangmanPicture = UIImage(name:"hangMan1")!
+       // hangmanPicture = UIImage(name:"HangMan1")!
     }
     
     

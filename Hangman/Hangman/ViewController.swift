@@ -10,7 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var gameBrian = Hangman()
     
     
     
@@ -26,7 +25,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var hangmanPicture: UIImageView!
     
-    
+    var gameBrian = Hangman()
+
     
     
     
@@ -37,8 +37,13 @@ class ViewController: UIViewController {
     cohortTextField.delegate = self
   }
 
+
+    
+    
     @IBAction func newGame(_ sender: UIButton) {
-        newGameStart()
+       gameBrian.newGameStart()
+        guard let underLine = userInputTextField.text else { return }
+        underLineLabel.text = gameBrian.gameArray(word: underLine)
     }
     
     
@@ -53,6 +58,17 @@ extension ViewController: UITextFieldDelegate {
     // step 2: implement methods as needed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // dismiss keyboard
+//        textField.text
+        switch textField {
+        case cohortTextField:
+            gameBrian.guessLetter(word2: textField.text!)
+            underLineLabel.text = gameBrian.updateWord(word2: textField.text!)
+            return true
+        default:
+            return true
+        }
+        
+        
         textField.resignFirstResponder()
         
         if textField == cohortTextField {
@@ -67,6 +83,8 @@ extension ViewController: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        
         print(textField.text ?? "")
         return true
     }
